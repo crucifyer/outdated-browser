@@ -5,7 +5,7 @@
  website:    http://www.burocratik.com
  * @preserve
 
- Modified by Song Hyo Jin (shj at xenosi.de) for use CDN
+ Modified by Song Hyo Jin (shj at xenosi.de) for use CDN - github.com/crucifyer
  -----------------------------------------------------------------------*/
 
 window.__outdated_HTMLTEXT = '<h6>Your browser is out-of-date!</h6>'
