@@ -12,7 +12,8 @@ var outdatedBrowser = function(options) {
 	//Variable definition (before ajax)
 	var outdated = document.createElement('div');
 	outdated.id = 'outdated';
-	document.body.appendChild(outdated);
+	outdated.style.display = 'none';
+	document.body.insertBefore(outdated, document.body.firstChild);
 
 	// Default settings
 	this.defaultOpts = {
