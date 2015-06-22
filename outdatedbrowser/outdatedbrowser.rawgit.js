@@ -95,7 +95,7 @@ var outdatedBrowser = function(options) {
 			});
 
 			while(len--) {
-				if ( vendors[len] + prop in div.style ) {
+				if ( vendors[len] + prop in outdated.style ) {
 					return true;
 				}
 			}
