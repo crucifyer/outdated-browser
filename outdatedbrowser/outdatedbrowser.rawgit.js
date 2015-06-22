@@ -5,8 +5,13 @@
  website:    http://www.burocratik.com
  * @preserve
 
- Modified by Song Hyo Jin (shj at xenosi.de) for use CDN and Auto detect Language
+ Modified by Song Hyo Jin (shj at xenosi.de) for use CDN
  -----------------------------------------------------------------------*/
+
+window.__outdated_HTMLTEXT = '<h6>Your browser is out-of-date!</h6>'
++ '<p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>'
++ '<p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>';
+
 var outdatedBrowser = function(options) {
 
 	//Variable definition (before ajax)
@@ -19,36 +24,35 @@ var outdatedBrowser = function(options) {
 	this.defaultOpts = {
 		bgColor: '#f25648',
 		color: '#ffffff',
-		lowerThan: 'transform',
-		language: navigator.language ? navigator.language.toLowerCase().replace(/^([a-z]{2}).*$/, '$1') : 'en'
+		lowerThan: 'transform'
 	}
 
 	if (options) {
 		//assign css3 property to IE browser version
-		if(options.lowerThan == 'IE8' || options.lowerThan == 'borderSpacing') {
-			options.lowerThan = 'borderSpacing';
-		} else if (options.lowerThan == 'IE9' || options.lowerThan == 'boxShadow') {
-			options.lowerThan = 'boxShadow';
-		} else if (options.lowerThan == 'IE10' || options.lowerThan == 'transform' || options.lowerThan == '' || typeof options.lowerThan === "undefined") {
-			options.lowerThan = 'transform';
-		} else if (options.lowerThan == 'IE11' || options.lowerThan == 'borderImage') {
-			options.lowerThan = 'borderImage';
+		if(options.lowerThan) {
+			if(options.lowerThan == 'IE8' || options.lowerThan == 'borderSpacing') {
+				options.lowerThan = 'borderSpacing';
+			} else if(options.lowerThan == 'IE9' || options.lowerThan == 'boxShadow') {
+				options.lowerThan = 'boxShadow';
+			} else if(options.lowerThan == 'IE10' || options.lowerThan == 'transform' || options.lowerThan == '' || typeof options.lowerThan === "undefined") {
+				options.lowerThan = 'transform';
+			} else if(options.lowerThan == 'IE11' || options.lowerThan == 'borderImage') {
+				options.lowerThan = 'borderImage';
+			}
+			this.defaultOpts.lowerThan = options.lowerThan;
 		}
 		//all properties
 		if(options.bgColor) this.defaultOpts.bgColor = options.bgColor;
 		if(options.color) this.defaultOpts.color = options.color;
-		this.defaultOpts.lowerThan = options.lowerThan;
-		if(options.language) this.defaultOpts.language = options.language;
+
 
 		bkgColor = this.defaultOpts.bgColor;
 		txtColor = this.defaultOpts.color;
 		cssProp = this.defaultOpts.lowerThan;
-		language = this.defaultOpts.language;
 	} else {
 		bkgColor = this.defaultOpts.bgColor;
 		txtColor = this.defaultOpts.color;
 		cssProp = this.defaultOpts.lowerThan;
-		language = this.defaultOpts.language;
 	};//end if options
 
 
@@ -119,15 +123,11 @@ var outdatedBrowser = function(options) {
 		return;
 	};//end if
 
-	//Check AJAX Options: if languagePath == '' > use no Ajax way, html is needed inside <div id="outdated">
-	//if( languagePath === ' ' || languagePath.length == 0 ){
-	//    startStylesAndEvents();
-	//}else{
 	var csstag = document.createElement('link');
 	csstag.rel = 'stylesheet';
-	csstag.href = '//cdn.rawgit.com/burocratik/outdated-browser/develop/outdatedbrowser/outdatedbrowser.min.css';
-	grabFile(language);
-	//}
+	csstag.href = '//cdn.rawgit.com/crucifyer/outdated-browser/develop/outdatedbrowser/outdatedbrowser.min.css';
+	outdated.innerHTML = window.__outdated_HTMLTEXT;
+	startStylesAndEvents();
 
 	//events and colors
 	function startStylesAndEvents(){
@@ -163,57 +163,6 @@ var outdatedBrowser = function(options) {
 			this.style.backgroundColor = bkgColor;
 		};
 	}//end styles and events
-
-
-	// IF AJAX with request ERROR > insert english default
-	var ajaxEnglishDefault = '<h6>Your browser is out-of-date!</h6>'
-		+ '<p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>'
-		+ '<p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>';
-
-
-	//** AJAX FUNCTIONS - Bulletproof Ajax by Jeremy Keith **
-	function getHTTPObject() {
-		var xhr = false;
-		if (window.XMLHttpRequest) {
-			xhr = new XMLHttpRequest();
-		} else if (window.ActiveXObject) {
-			try {
-				xhr = new ActiveXObject("Msxml2.XMLHTTP");
-			} catch(e) {
-				try {
-					xhr = new ActiveXObject("Microsoft.XMLHTTP");
-				} catch(e) {
-					xhr = false;
-				}
-			}
-		}
-		return xhr;
-	};//end function
-
-	function grabFile(language) {
-		var request = getHTTPObject();
-		if (request) {
-			request.onreadystatechange = function() {
-				displayResponse(request);
-			};
-			request.open("GET", '//cdn.rawgit.com/burocratik/outdated-browser/develop/outdatedbrowser/lang/' + language + '.html', true);
-			request.send(null);
-		}
-		return false;
-	};//end grabFile
-
-	function displayResponse(request) {
-		var insertContentHere = document.getElementById("outdated");
-		if (request.readyState == 4) {
-			if (request.status == 200 || request.status == 304) {
-				insertContentHere.innerHTML = request.responseText;
-			}else{
-				insertContentHere.innerHTML = ajaxEnglishDefault;
-			}
-			startStylesAndEvents();
-		}
-		return false;
-	};//end displayResponse
 
 ////////END of outdatedBrowser function
 };

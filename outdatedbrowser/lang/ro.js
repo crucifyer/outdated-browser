@@ -1,0 +1,1 @@
+window.__outdated_HTMLTEXT="<h6>Browserul este \u00eenvechit!<\/h6> <p>Actualiza\u021bi browserul pentru a vizualiza corect acest site. <a id=\"btnUpdateBrowser\" href=\"http:\/\/outdatedbrowser.com\/\">Actualiza\u021bi browserul acum!<\/a><\/p> <p class=\"last\"><a href=\"#\" id=\"btnCloseUpdateBrowser\" title=\"Close\">&times;<\/a><\/p>";
