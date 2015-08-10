@@ -1,0 +1,1 @@
+window.__outdated_HTMLTEXT="<h6>Din webbl\u00e4sare st\u00f6djs ej l\u00e4ngre!<\/h6> <p>Uppdatera din webbl\u00e4sare f\u00f6r att webbplatsen ska visas korrekt. <a id=\"btnUpdateBrowser\" href=\"http:\/\/outdatedbrowser.com\/\">Uppdatera min webbl\u00e4sare nu<\/a><\/p> <p class=\"last\"><a href=\"#\" id=\"btnCloseUpdateBrowser\" title=\"St\u00e4ng\">&times;<\/a><\/p>";
