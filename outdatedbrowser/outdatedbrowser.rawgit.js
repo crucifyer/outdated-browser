@@ -1,6 +1,6 @@
 /*!--------------------------------------------------------------------
  JAVASCRIPT "Outdated Browser"
- Version:    1.1.0 - 2014
+ Version:    1.1.2 - 2015
  author:     Burocratik
  website:    http://www.burocratik.com
  * @preserve
@@ -144,7 +144,9 @@ var outdatedBrowser = function(options) {
 		//check settings attributes
 		btnUpdate.style.color = txtColor;
 		// btnUpdate.style.borderColor = txtColor;
-		if (btnUpdate.style.borderColor) btnUpdate.style.borderColor = txtColor;
+		if (btnUpdate.style.borderColor) {
+			btnUpdate.style.borderColor = txtColor;
+		}
 		btnClose.style.color = txtColor;
 
 		//close button
