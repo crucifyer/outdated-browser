@@ -1,0 +1,1 @@
+window.__outdated_HTMLTEXT="<h6>Sinu veebilehitseja on vananenud!<\/h6><p>Palun uuenda oma veebilehitsejat, et n\u00e4ha lehek\u00fclge korrektselt. <a id=\"btnUpdateBrowser\" href=\"http:\/\/outdatedbrowser.com\/et\">Uuenda oma veebilehitsejat kohe<\/a><\/p><p class=\"last\"><a href=\"#\" id=\"btnCloseUpdateBrowser\" title=\"Sulge\">&times;<\/a><\/p>";
