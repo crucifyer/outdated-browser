@@ -1,0 +1,1 @@
+window.__outdated_HTMLTEXT="<h6>Va\u0161 Internet preglednik nije a\u017euriran!<\/h6> <p>A\u017eurirajte Va\u0161 preglednik za ispravan prikaz ove stranice. <a id=\"btnUpdateBrowser\" href=\"http:\/\/outdatedbrowser.com\/\">A\u017euriraj odmah <\/a><\/p> <p class=\"last\"><a href=\"#\" id=\"btnCloseUpdateBrowser\" title=\"Zatvori\">&times;<\/a><\/p>";
